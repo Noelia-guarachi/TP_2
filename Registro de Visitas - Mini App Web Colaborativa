@@ -1,0 +1,27 @@
+_Registro de Visitas - Mini App Web Colaborativa
+
+Este proyecto es una aplicación web simple desarrollada con Python con extensiones Flask, HTML, CSS y SQLite, diseñada para registrar un trabajo práctico colaborativo para registrar, visualizar y organizar las visitas de forma eficiente.
+
+_ Funcionalidades
+
+- Registrar visitantes con los siguientes datos:
+  - Nombre
+  - Apellido
+  - DNI
+  - Motivo de la visita
+  - Persona a la que visita
+  - Hora de ingreso (automática)
+  
+- Visualizar las visitas registradas en una tabla.
+- Estilo visual personalizado con CSS.
+
+
+
+_   Tecnologías Utilizadas
+
+- Python.
+- FlasK como web.
+- SQLite como base de datos local.
+- HTML y CSS3 para la interfaz.
+- Git + GitHub para control de versiones.
+
