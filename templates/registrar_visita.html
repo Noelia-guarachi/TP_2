@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Visita - Sistema de Visitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sistema de Visitas</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('listar_visitas') }}">Ver Visitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('registrar_visita') }}">Registrar Visita</a>
+                    </li>
+                </ul>
+                <span class="navbar-text me-3">
+                    Hola, {{ session.get('username', 'Invitado') }} ({{ session.get('role', '') }})
+                </span>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-light">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Registrar Nueva Visita</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('registrar_visita') }}" method="POST">
+            <div class="mb-3">
+                <label for="dni" class="form-label">DNI Visitante:</label>
+                <input type="text" class="form-control" id="dni" name="dni" required>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre Visitante:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido Visitante (Opcional):</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+            <div class="mb-3">
+                <label for="motivo" class="form-label">Motivo de la Visita:</label>
+                <textarea class="form-control" id="motivo" name="motivo" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="persona_visitada" class="form-label">Persona/Departamento Visitado:</label>
+                <input type="text" class="form-control" id="persona_visitada" name="persona_visitada" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Ingreso</button>
+            <a href="{{ url_for('listar_visitas') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
