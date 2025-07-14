@@ -1,0 +1,38 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #e2e6ea;
+}
+
+/* Responsividad básica para el formulario de filtros */
+@media (max-width: 768px) {
+    .row.g-3 > div {
+        margin-bottom: 10px; /* Espacio entre los campos en móvil */
+    }
+}
